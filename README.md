@@ -5,7 +5,7 @@ Usage:
 
 Step1: 
 
-      Apply an Elsevier account and creat a APIKey under MyaAPI from:
+      Apply an Elsevier account and creat a APIKey under MyAPI from:
       https://dev.elsevier.com/user/login
       
 Step2:
