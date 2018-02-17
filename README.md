@@ -10,7 +10,7 @@ Step1:
       
 Step2:
 
-    Clone the Repositories to some file
+    Clone the Repositories to a folder
 
 Step3:
 
