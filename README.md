@@ -3,11 +3,11 @@ This is an open source project using API from Elsevier to allow user download me
 
 Usage:
 Step1: 
+
       Apply an Elsevier account and creat a APIKey under MyaAPI from:
       https://dev.elsevier.com/user/login
       
 Step2:
-
 
     Clone the Repositories to some file
 
