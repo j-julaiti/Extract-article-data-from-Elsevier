@@ -40,3 +40,6 @@ For version 1.0 the metadata contains:
 11. Paper ID corresponding to the full body of the paper in the folder created based the time you ran the code
     
  
+Note: the dataframe of the metadata is saved as a pickle file (extracted_data.p) since some cells contain a list, save as a csv and read it back will cause unneccessry process to recover it to a list.
+
+The pickle file is also in the folder named with the time you ran the code.
