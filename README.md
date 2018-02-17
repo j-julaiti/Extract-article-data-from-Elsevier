@@ -5,7 +5,7 @@ Usage:
 
 Step1: 
 
-      Apply an Elsevier account and creat a APIKey under MyAPI from:
+      Apply an Elsevier account and creat a APIKey under MyAPI from (it's free):
       https://dev.elsevier.com/user/login
       
 Step2:
@@ -25,8 +25,15 @@ Step5:
     Run the code and explore the dataset
     In the end of the code, most of the data will be stored into a dataframe named "textdata".
     Addtionally, a full body of the paper will be in a new folder named with the time you ran the code
-   
-For version 1.0 the metadata contains:
+
+Overall, the inputs are:
+
+      1) Keywords to query the articles, 2) APIkeys from Elsevier
+And the outpus have two parts:
+      
+      1) basic information of the papers in a dataframe, 2) full body of the paper (may not be always available)
+
+For version 1.0 the basic information contains:
 1. Title
 2. Authors
 3. Abstract
@@ -40,6 +47,6 @@ For version 1.0 the metadata contains:
 11. Paper ID corresponding to the full body of the paper in the folder created based the time you ran the code
     
  
-Note: the dataframe of the metadata is saved as a pickle file (extracted_data.p) since some cells contain a list, save as a csv and read it back will cause unneccessry process to recover it to a list.
+Note: the dataframe of the basic information is saved as a pickle file (extracted_data.p) since some cells contain a list, saving as a csv and reading it back will cause unneccessry process to recover them to lists.
 
 The pickle file is also in the folder named with the time you ran the code.
