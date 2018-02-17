@@ -50,3 +50,7 @@ For version 1.0 the basic information contains:
 Note: the dataframe of the basic information is saved as a pickle file (extracted_data.p) since some cells contain a list, saving as a csv and reading it back will cause unneccessry process to recover them to lists.
 
 The pickle file is also in the folder named with the time you ran the code.
+
+
+
+Some network analysis based on the data is under developing.
