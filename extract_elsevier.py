@@ -1,19 +1,8 @@
-
-# coding: utf-8
-
-# In[1]:
-
 import requests, re, os, time, pickle
 import pandas as pd
 
-
-# In[2]:
-
 keywords = '''queueing AND service interruption'''
 APIkey = ''
-
-
-# In[3]:
 
 current_time = time.asctime()
 current_time = current_time.replace("  ","_")
@@ -21,12 +10,7 @@ current_time = current_time.replace(" ","_")
 current_time = current_time.replace(":","_")
 
 
-# In[4]:
-
 os.popen("mkdir "+current_time)
-
-
-# In[5]:
 
 def extract_metadata(keywords,APIkey):
     textdata =pd.DataFrame()
@@ -46,9 +30,6 @@ def extract_metadata(keywords,APIkey):
             start = start+ 100 
             
     return textdata
-
-
-# In[6]:
 
 def extract_article_info(url,start,APIkey):
     intextdata =pd.DataFrame()
@@ -168,28 +149,9 @@ def extract_article_info(url,start,APIkey):
     
     return intextdata,num_results
 
-
-# In[ ]:
-
 textdata = extract_metadata(keywords,APIkey)
 
-
-# In[9]:
-
 pickle.dump(textdata,open( current_time+'/extracted_data.p', "wb" ))
-
-
-# In[11]:
-
-textdata.head()
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
 
 
 
