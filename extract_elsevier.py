@@ -1,16 +1,32 @@
+
 # coding: utf-8
+
+# In[1]:
+
 import requests, re, os, time, pickle
 import pandas as pd
 
-keywords = '''artificial intelligence'''
+
+# In[2]:
+
+keywords = '''queueing AND service interruption'''
 APIkey = ''
+
+
+# In[3]:
 
 current_time = time.asctime()
 current_time = current_time.replace("  ","_")
 current_time = current_time.replace(" ","_")
 current_time = current_time.replace(":","_")
 
+
+# In[4]:
+
 os.popen("mkdir "+current_time)
+
+
+# In[5]:
 
 def extract_metadata(keywords,APIkey):
     textdata =pd.DataFrame()
@@ -27,12 +43,12 @@ def extract_metadata(keywords,APIkey):
             print("last page")
             break
         else:
-            start = start+ 100
-        break
-
+            start = start+ 100 
+            
     return textdata
 
 
+# In[6]:
 
 def extract_article_info(url,start,APIkey):
     intextdata =pd.DataFrame()
@@ -40,7 +56,7 @@ def extract_article_info(url,start,APIkey):
     results = resp.json()
     num_results = 0
     identifier_set = []
-
+    
     try:
         num_results = len(results['search-results']['entry'])
         for idx in range(0,num_results):
@@ -53,7 +69,7 @@ def extract_article_info(url,start,APIkey):
         print("No entry is found, you may need to change the keywords")
         return -1,-1
     idx=0
-    for identifier in identifier_set[:5]:
+    for identifier in identifier_set:
         try:
             try:
                 resp_info = requests.get("http://api.elsevier.com/content/article/"+identifier+"?&view=FULL",
@@ -68,9 +84,7 @@ def extract_article_info(url,start,APIkey):
                 results_info = resp_info.json()
                 _ = results_info["full-text-retrieval-response"]["coredata"]["dc:title"]
 
-
-
-            if (idx+start)%1==0:
+            if (idx+start)%50==0:
                 print(idx+start,"papers are extracted")
 
             ### number of citation ###
@@ -84,18 +98,18 @@ def extract_article_info(url,start,APIkey):
                 cc = 0
 
             ### title ###
-            try:
+            try:        
                 title=results_info["full-text-retrieval-response"]["coredata"]["dc:title"]
             except:
                 title="not provided"
 
             ### date of publication ###
-            try:
+            try:        
                 date=results_info["full-text-retrieval-response"]["coredata"]["prism:coverDate"]
             except:
                 date="not provided"
 
-            ### authors ###
+            ### authors ###    
             try:
                 authors=[]
                 for x in range(0,len(results_info["full-text-retrieval-response"]["coredata"]['dc:creator'])):
@@ -112,19 +126,19 @@ def extract_article_info(url,start,APIkey):
                 apk="not provided"
 
             ### journal/book name ###
-            try:
+            try:        
                 journal=results_info["full-text-retrieval-response"]["coredata"]['prism:publicationName']
             except:
                 journal="not provided"
 
             ### type of publication ###
-            try:
+            try:        
                 jtype=results_info["full-text-retrieval-response"]["coredata"]['prism:aggregationType']
             except:
                 jtype="not provided"
 
-            ### abstract ###
-            try:
+            ### abstract ###    
+            try:        
                 abst=results_info["full-text-retrieval-response"]["coredata"]['dc:description']
             except:
                 abst="not provided"
@@ -151,11 +165,31 @@ def extract_article_info(url,start,APIkey):
             idx+=1
         except:
             print(idx,": full review failed")
-
+    
     return intextdata,num_results
 
 
+# In[ ]:
 
 textdata = extract_metadata(keywords,APIkey)
 
+
+# In[9]:
+
 pickle.dump(textdata,open( current_time+'/extracted_data.p', "wb" ))
+
+
+# In[11]:
+
+textdata.head()
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
