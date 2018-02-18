@@ -1,5 +1,5 @@
 # Extract-article-data-from-Elsevier
-This is an open source project using API from Elsevier to allow user extract data of research articles, that can be used to analyize a topic by clustering papers into subtopics, build tempral network to analyize trend of the topic etc.
+This is an open source project using API from Elsevier to allow user extract data of research articles, that can be used to analyize a topic by clustering papers into subtopics, analyize trend of the topic by building tempral networks etc.
 
 Usage:
 
