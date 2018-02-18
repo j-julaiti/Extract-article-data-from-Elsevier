@@ -26,6 +26,10 @@ Step5:
     In the end of the code, most of the data will be stored into a dataframe named "textdata".
     Addtionally, a full body of the paper will be in a new folder named with the time you ran the code
 
+Step 6:
+
+      Explore the data, some examples are shown in exploratory_analysis.ipynb
+
 Overall, the inputs are:
 
       1) Keywords to query the articles, 2) APIkeys from Elsevier
