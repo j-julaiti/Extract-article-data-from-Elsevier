@@ -18,7 +18,7 @@ Step3:
 
 Step4:
 
-    Setup the APIkey and querying keywords (defult is "artificial intelligence")
+    Setup the APIkey and querying keywords (defult is "queueing AND service interruption")
 
 Step5:
 
